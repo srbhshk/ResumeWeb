@@ -1,0 +1,46 @@
+services:
+  web:
+    build:
+      context: .
+      target: development
+    container_name: resumeweb_app
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+      - uploads_data:/app/public/uploads
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/resumeweb
+      - SUPABASE_URL=http://localhost:54321
+      - SUPABASE_SERVICE_KEY=local-dev-service-key-for-testing-12345
+      - VERCEL_BLOB_TOKEN=local-dev-blob-token-for-testing-12345
+      - JWT_SECRET=local-dev-jwt-signing-key-for-authentication-12345
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17-alpine
+    container_name: resumeweb_db
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=resumeweb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d resumeweb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
+    driver: local
+  uploads_data:
+    driver: local
