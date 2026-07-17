@@ -8,4 +8,3 @@ jest.mock('next/image', () => ({
     return React.createElement('img', props);
   },
 }));
-

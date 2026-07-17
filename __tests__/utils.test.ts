@@ -10,6 +10,6 @@ describe('slugify utility function', () => {
   });
 
   it('should strip out non-word characters like punctuation and collapse multiple dashes', () => {
-    expect(slugify('John\'s Portfolio - Web Developer!')).toBe('johns-portfolio-web-developer');
+    expect(slugify("John's Portfolio - Web Developer!")).toBe('johns-portfolio-web-developer');
   });
 });
