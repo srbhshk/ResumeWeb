@@ -25,7 +25,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **4** | Configure GitHub Actions workflow for CI (lint, check, test) | `dbb7eb4a-5fa3-4c3b-8570-4f186abb3152` | **#45** | Done | Milestone 2 |
 | **5** | Setup Jest and React Testing Library for unit & integration tests | `dfe95477-2e31-4812-8cd7-33390f5caf68` | **#43** | Done | Milestone 1 |
 | **6** | Implement database indexes and constraints as per schema design | `ce45654e-520b-41b9-8193-7a47d9638999` | **#47** | Done | - |
-| **7** | Setup GitHub Actions deployment integration with Vercel | `1c8b02f4-c351-4be3-83a6-b23ff0472467` | **#46** | Todo | Milestone 2 |
+| **7** | Setup GitHub Actions deployment integration with Vercel | `1c8b02f4-c351-4be3-83a6-b23ff0472467` | **#46** | Done | Milestone 2 |
 | **8** | Setup documentation framework with Docusaurus and initial docs | `3e7a0212-1e55-454c-8edf-326927d16af5` | **#49** | Todo | - |
 | **9** | Setup ESLint, Prettier, and Husky for linting and formatting | `8a740e79-bcbf-41e4-8bfd-12cecdaf6d82` | **#40** | Todo | - |
 | **10** | Document API endpoints and data models in OpenAPI format | `9ebcc52d-6484-466d-be73-45b898f8c2f2` | **#50** | Todo | - |
@@ -36,7 +36,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **15** | Create Dockerfile for Next.js 16.2.7 with TS and Tailwind | `e5a8d7b7-fb9c-4ec6-93e4-6f268ff4c186` | **#61** | Done | - |
 | **16** | Provision Supabase Postgres 18.4 Instance and Configure Access | `27df936b-5390-42c1-8e9e-44a5bbe5f3f6` | **#97** | Todo | - |
 | **17** | Create docker-compose.yml for Local Dev with Supabase/Blob Mocks | `5ac7ea26-a221-4470-8d55-b2c5a71cc899` | **#62** | Done | - |
-| **18** | Configure Automatic Deployment to Vercel on Successful CI | `c16422bc-13c7-4655-b739-5eebff434092` | **#60** | Todo | Milestone 2 |
+| **18** | Configure Automatic Deployment to Vercel on Successful CI | `c16422bc-13c7-4655-b739-5eebff434092` | **#60** | Done | Milestone 2 |
 | **19** | Implement and Test File Upload/Retrieval via Vercel Blob SDK | `8f628a4c-be0a-417a-8f03-33b787cbaaf6` | **#58** | Todo | - |
 | **20** | Apply Database Schema and Create Tables with Indexes/Constraints | `35499962-e3c1-41a7-9e95-50b75be83ed2` | **#98** | Done | - |
 | **21** | Document Local Development Environment Setup and Usage | `6c88406e-3203-45cf-8768-3d2815acccfc` | **#63** | Todo | - |
