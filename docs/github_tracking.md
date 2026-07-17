@@ -22,7 +22,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **1** | Initialize GitHub repository and setup Next.js project with TypeScript | `5d060f8a-1332-4d02-81ac-aa1a7843f6a3` | **#39** | Done | - |
 | **2** | Create Dockerfile and docker-compose for local development environment | `c1fc9859-ac6f-4b03-8773-f3eac23657bf` | **#42** | Done | - |
 | **3** | Setup database migration tooling using Supabase CLI and SQL scripts | `33e87663-96eb-4b00-b630-ba227c2362c3` | **#48** | Done | - |
-| **4** | Configure GitHub Actions workflow for CI (lint, check, test) | `dbb7eb4a-5fa3-4c3b-8570-4f186abb3152` | **#45** | Todo | Milestone 2 |
+| **4** | Configure GitHub Actions workflow for CI (lint, check, test) | `dbb7eb4a-5fa3-4c3b-8570-4f186abb3152` | **#45** | Done | Milestone 2 |
 | **5** | Setup Jest and React Testing Library for unit & integration tests | `dfe95477-2e31-4812-8cd7-33390f5caf68` | **#43** | Todo | Milestone 1 |
 | **6** | Implement database indexes and constraints as per schema design | `ce45654e-520b-41b9-8193-7a47d9638999` | **#47** | Done | - |
 | **7** | Setup GitHub Actions deployment integration with Vercel | `1c8b02f4-c351-4be3-83a6-b23ff0472467` | **#46** | Todo | Milestone 2 |
@@ -32,7 +32,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **11** | Integrate Tailwind CSS with Next.js and configure basic styles | `a89398a6-29fe-47a6-9525-22c220d40d7c` | **#41** | Todo | - |
 | **12** | Integrate ESLint and Prettier with testing and Docker environment | `24e2ecca-b26d-410e-b9e9-7a2c18f46049` | **#44** | Todo | - |
 | **13** | Enable and Configure Vercel Blob Storage for Resume PDFs/Photos | `d291a122-fe84-468e-8e4e-ac82efb2ef74` | **#57** | Todo | - |
-| **14** | Create GitHub Actions Workflow for Linting, Checking, and Testing | `043cd481-2ca7-4dba-9668-3b19b1310912` | **#59** | Todo | Milestone 2 |
+| **14** | Create GitHub Actions Workflow for Linting, Checking, and Testing | `043cd481-2ca7-4dba-9668-3b19b1310912` | **#59** | Done | Milestone 2 |
 | **15** | Create Dockerfile for Next.js 16.2.7 with TS and Tailwind | `e5a8d7b7-fb9c-4ec6-93e4-6f268ff4c186` | **#61** | Done | - |
 | **16** | Provision Supabase Postgres 18.4 Instance and Configure Access | `27df936b-5390-42c1-8e9e-44a5bbe5f3f6` | **#97** | Todo | - |
 | **17** | Create docker-compose.yml for Local Dev with Supabase/Blob Mocks | `5ac7ea26-a221-4470-8d55-b2c5a71cc899` | **#62** | Done | - |
