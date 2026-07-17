@@ -28,7 +28,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **7**  | Setup GitHub Actions deployment integration with Vercel                | `1c8b02f4-c351-4be3-83a6-b23ff0472467` |   **#46**    |  Done  | Milestone 2      |
 | **8**  | Setup documentation framework with Docusaurus and initial docs         | `3e7a0212-1e55-454c-8edf-326927d16af5` |   **#49**    |  Done  | -                |
 | **9**  | Setup ESLint, Prettier, and Husky for linting and formatting           | `8a740e79-bcbf-41e4-8bfd-12cecdaf6d82` |   **#40**    |  Done  | -                |
-| **10** | Document API endpoints and data models in OpenAPI format               | `9ebcc52d-6484-466d-be73-45b898f8c2f2` |   **#50**    |  Todo  | -                |
+| **10** | Document API endpoints and data models in OpenAPI format               | `9ebcc52d-6484-466d-be73-45b898f8c2f2` |   **#50**    |  Done  | -                |
 | **11** | Integrate Tailwind CSS with Next.js and configure basic styles         | `a89398a6-29fe-47a6-9525-22c220d40d7c` |   **#41**    |  Todo  | -                |
 | **12** | Integrate ESLint and Prettier with testing and Docker environment      | `24e2ecca-b26d-410e-b9e9-7a2c18f46049` |   **#44**    |  Done  | -                |
 | **13** | Enable and Configure Vercel Blob Storage for Resume PDFs/Photos        | `d291a122-fe84-468e-8e4e-ac82efb2ef74` |   **#57**    |  Todo  | -                |

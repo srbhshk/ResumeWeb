@@ -1,0 +1,340 @@
+openapi: 3.0.3
+info:
+  title: ResumeWeb API Specification
+  description: |
+    Developer API documentation for the ResumeWeb portfolio rendering, resume uploading,
+    parsing pipeline, and content modification services.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+paths:
+  /api/upload:
+    post:
+      summary: Upload resume PDF
+      description: Uploads a resume PDF to initiate parsing and record storage.
+      operationId: uploadResume
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The resume PDF file to upload. Max size is 5MB.
+      responses:
+        '202':
+          description: Upload accepted and async parsing pipeline queued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Resume uploaded successfully, parsing started.
+                  jobId:
+                    type: string
+                    format: uuid
+                    example: 7b92f913-c918-4221-a392-123456789abc
+                  portfolioId:
+                    type: string
+                    format: uuid
+                    example: f4b1d62e-fe84-468e-8e4e-ac82efb2ef74
+                  editToken:
+                    type: string
+                    description: JWT edit token signed with HS256 for future edits.
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        '400':
+          description: Invalid request payload (e.g. file size exceeds 5MB or invalid MIME type).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded (Max 3 uploads per hour per IP).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/status/{jobId}:
+    get:
+      summary: Query resume parsing status
+      description: Check the state and results of the asynchronous parsing pipeline job.
+      operationId: getParseJobStatus
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          description: The unique identifier of the parsing job.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Job status fetched successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - success
+                  - status
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  status:
+                    type: string
+                    enum: [pending, processing, success, error]
+                    example: success
+                  slug:
+                    type: string
+                    description: The unique URL slug generated for the portfolio page.
+                    example: john-doe-resume
+                  message:
+                    type: string
+                    description: Detailed error summary if parse status is 'error'.
+                    example: Failed to extract text from PDF file.
+        '404':
+          description: Parsing job not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/edit/{token}:
+    patch:
+      summary: Modify portfolio content
+      description: Updates editable content fields of a portfolio.
+      operationId: updatePortfolio
+      security:
+        - JWTAuth: []
+      parameters:
+        - name: token
+          in: path
+          required: true
+          description: JWT Edit token identifying the portfolio.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PortfolioUpdatePayload'
+      responses:
+        '200':
+          description: Portfolio updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Portfolio details saved successfully.
+        '401':
+          description: Unauthorized due to missing or invalid JWT.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden to edit this portfolio record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Portfolio not found or soft-deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    delete:
+      summary: Soft-delete portfolio
+      description: Populates the deleted_at timestamp, making the portfolio inaccessible publicly.
+      operationId: deletePortfolio
+      security:
+        - JWTAuth: []
+      parameters:
+        - name: token
+          in: path
+          required: true
+          description: JWT Edit token identifying the portfolio.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Portfolio successfully soft-deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Portfolio soft-deleted successfully.
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Portfolio not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/edit/{token}/photo:
+    post:
+      summary: Upload portfolio photo
+      description: Uploads a headshot image file to Vercel Blob and attaches it to the portfolio.
+      operationId: uploadPhoto
+      security:
+        - JWTAuth: []
+      parameters:
+        - name: token
+          in: path
+          required: true
+          description: JWT Edit token identifying the portfolio.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The headshot image file (PNG/JPG, Max: 2MB).
+      responses:
+        '200':
+          description: Headshot photo uploaded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  photoUrl:
+                    type: string
+                    format: uri
+                    example: https://vercel-blob-storage-link/headshots/photo-123.jpg
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '400':
+          description: Invalid image size or format.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    JWTAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Enter the cryptographically signed HS256 JWT Edit Token.
+
+  schemas:
+    ErrorResponse:
+      type: object
+      required:
+        - success
+        - error
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: string
+          example: Invalid input parameters.
+
+    PortfolioUpdatePayload:
+      type: object
+      properties:
+        summary:
+          type: string
+          example: Senior software architect with 10+ years of experience in TS and React.
+        experience_json:
+          type: array
+          items:
+            type: object
+            properties:
+              company:
+                type: string
+              role:
+                type: string
+              duration:
+                type: string
+              highlights:
+                type: array
+                items:
+                  type: string
+        skills_json:
+          type: array
+          items:
+            type: string
+            example: ['React', 'TypeScript', 'Node.js']
+        education_json:
+          type: array
+          items:
+            type: object
+            properties:
+              institution:
+                type: string
+              degree:
+                type: string
+              year:
+                type: string
+        projects_json:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              description:
+                type: string
+              link:
+                type: string
+        is_published:
+          type: boolean
+          description: Toggles public rendering visibility of `/p/[slug]`.
+          example: true
+        allow_search_indexing:
+          type: boolean
+          description: Toggles robots indexing. If false, returns noindex headers.
+          example: false
