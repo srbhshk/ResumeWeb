@@ -20,7 +20,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | Task # | Task Description | Task ID | GitHub Issue | Status | Target Milestone |
 |:---:|:---|:---|:---:|:---:|:---|
 | **1** | Initialize GitHub repository and setup Next.js project with TypeScript | `5d060f8a-1332-4d02-81ac-aa1a7843f6a3` | **#39** | Done | - |
-| **2** | Create Dockerfile and docker-compose for local development environment | `c1fc9859-ac6f-4b03-8773-f3eac23657bf` | **#42** | Todo | - |
+| **2** | Create Dockerfile and docker-compose for local development environment | `c1fc9859-ac6f-4b03-8773-f3eac23657bf` | **#42** | Done | - |
 | **3** | Setup database migration tooling using Supabase CLI and SQL scripts | `33e87663-96eb-4b00-b630-ba227c2362c3` | **#48** | Todo | - |
 | **4** | Configure GitHub Actions workflow for CI (lint, check, test) | `dbb7eb4a-5fa3-4c3b-8570-4f186abb3152` | **#45** | Todo | Milestone 2 |
 | **5** | Setup Jest and React Testing Library for unit & integration tests | `dfe95477-2e31-4812-8cd7-33390f5caf68` | **#43** | Todo | Milestone 1 |
@@ -33,9 +33,9 @@ This document maps the project's engineering tasks to the remote repository's is
 | **12** | Integrate ESLint and Prettier with testing and Docker environment | `24e2ecca-b26d-410e-b9e9-7a2c18f46049` | **#44** | Todo | - |
 | **13** | Enable and Configure Vercel Blob Storage for Resume PDFs/Photos | `d291a122-fe84-468e-8e4e-ac82efb2ef74` | **#57** | Todo | - |
 | **14** | Create GitHub Actions Workflow for Linting, Checking, and Testing | `043cd481-2ca7-4dba-9668-3b19b1310912` | **#59** | Todo | Milestone 2 |
-| **15** | Create Dockerfile for Next.js 16.2.7 with TS and Tailwind | `e5a8d7b7-fb9c-4ec6-93e4-6f268ff4c186` | **#61** | Todo | - |
+| **15** | Create Dockerfile for Next.js 16.2.7 with TS and Tailwind | `e5a8d7b7-fb9c-4ec6-93e4-6f268ff4c186` | **#61** | Done | - |
 | **16** | Provision Supabase Postgres 18.4 Instance and Configure Access | `27df936b-5390-42c1-8e9e-44a5bbe5f3f6` | **#97** | Todo | - |
-| **17** | Create docker-compose.yml for Local Dev with Supabase/Blob Mocks | `5ac7ea26-a221-4470-8d55-b2c5a71cc899` | **#62** | Todo | - |
+| **17** | Create docker-compose.yml for Local Dev with Supabase/Blob Mocks | `5ac7ea26-a221-4470-8d55-b2c5a71cc899` | **#62** | Done | - |
 | **18** | Configure Automatic Deployment to Vercel on Successful CI | `c16422bc-13c7-4655-b739-5eebff434092` | **#60** | Todo | Milestone 2 |
 | **19** | Implement and Test File Upload/Retrieval via Vercel Blob SDK | `8f628a4c-be0a-417a-8f03-33b787cbaaf6` | **#58** | Todo | - |
 | **20** | Apply Database Schema and Create Tables with Indexes/Constraints | `35499962-e3c1-41a7-9e95-50b75be83ed2` | **#98** | Todo | - |
