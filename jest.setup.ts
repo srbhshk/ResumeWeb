@@ -8,3 +8,12 @@ jest.mock('next/image', () => ({
     return React.createElement('img', props);
   },
 }));
+
+// Mock @vercel/blob
+jest.mock('@vercel/blob', () => ({
+  put: jest.fn().mockImplementation((name) => {
+    return Promise.resolve({
+      url: `https://mock-blob-storage-link/${name}`,
+    });
+  }),
+}));
