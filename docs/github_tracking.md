@@ -26,7 +26,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **5** | Setup Jest and React Testing Library for unit & integration tests | `dfe95477-2e31-4812-8cd7-33390f5caf68` | **#43** | Done | Milestone 1 |
 | **6** | Implement database indexes and constraints as per schema design | `ce45654e-520b-41b9-8193-7a47d9638999` | **#47** | Done | - |
 | **7** | Setup GitHub Actions deployment integration with Vercel | `1c8b02f4-c351-4be3-83a6-b23ff0472467` | **#46** | Done | Milestone 2 |
-| **8** | Setup documentation framework with Docusaurus and initial docs | `3e7a0212-1e55-454c-8edf-326927d16af5` | **#49** | Todo | - |
+| **8** | Setup documentation framework with Docusaurus and initial docs | `3e7a0212-1e55-454c-8edf-326927d16af5` | **#49** | Done | - |
 | **9** | Setup ESLint, Prettier, and Husky for linting and formatting | `8a740e79-bcbf-41e4-8bfd-12cecdaf6d82` | **#40** | Todo | - |
 | **10** | Document API endpoints and data models in OpenAPI format | `9ebcc52d-6484-466d-be73-45b898f8c2f2` | **#50** | Todo | - |
 | **11** | Integrate Tailwind CSS with Next.js and configure basic styles | `a89398a6-29fe-47a6-9525-22c220d40d7c` | **#41** | Todo | - |
