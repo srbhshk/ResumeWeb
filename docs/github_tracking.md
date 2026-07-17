@@ -23,7 +23,7 @@ This document maps the project's engineering tasks to the remote repository's is
 | **2** | Create Dockerfile and docker-compose for local development environment | `c1fc9859-ac6f-4b03-8773-f3eac23657bf` | **#42** | Done | - |
 | **3** | Setup database migration tooling using Supabase CLI and SQL scripts | `33e87663-96eb-4b00-b630-ba227c2362c3` | **#48** | Done | - |
 | **4** | Configure GitHub Actions workflow for CI (lint, check, test) | `dbb7eb4a-5fa3-4c3b-8570-4f186abb3152` | **#45** | Done | Milestone 2 |
-| **5** | Setup Jest and React Testing Library for unit & integration tests | `dfe95477-2e31-4812-8cd7-33390f5caf68` | **#43** | Todo | Milestone 1 |
+| **5** | Setup Jest and React Testing Library for unit & integration tests | `dfe95477-2e31-4812-8cd7-33390f5caf68` | **#43** | Done | Milestone 1 |
 | **6** | Implement database indexes and constraints as per schema design | `ce45654e-520b-41b9-8193-7a47d9638999` | **#47** | Done | - |
 | **7** | Setup GitHub Actions deployment integration with Vercel | `1c8b02f4-c351-4be3-83a6-b23ff0472467` | **#46** | Todo | Milestone 2 |
 | **8** | Setup documentation framework with Docusaurus and initial docs | `3e7a0212-1e55-454c-8edf-326927d16af5` | **#49** | Todo | - |
